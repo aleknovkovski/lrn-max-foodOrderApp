@@ -26,8 +26,12 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
+  const mealsList = DUMMY_MEALS.map((meal) => <li>{meal.name}</li>);
+
   return (
-    <h1>Available Meals here</h1>
+    <section>
+      <ul>{mealsList}</ul>
+    </section>
   );
 };
 
