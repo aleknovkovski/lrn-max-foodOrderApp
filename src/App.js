@@ -8,9 +8,13 @@ function App() {
 
     const [cartIsShown, setCartIsShown] = useState(false);
 
+    const showCartHandler = () => {
+        setCartIsShown(true);
+    };
+
     return (<>
         {cartIsShown && <Cart/>}
-        <Header/>
+        <Header showCart={showCartHandler} />
         <main>
             <Meals/>
         </main>
