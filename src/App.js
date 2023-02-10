@@ -5,15 +5,17 @@ import {useState} from "react";
 
 
 function App() {
-
     const [cartIsShown, setCartIsShown] = useState(false);
 
     const showCartHandler = () => {
         setCartIsShown(true);
     };
 
+    const hideCartHandler = () => {
+        setCartIsShown(false);
+    };
     return (<>
-        {cartIsShown && <Cart/>}
+        {cartIsShown && <Cart closeCart={hideCartHandler} />}
         <Header showCart={showCartHandler} />
         <main>
             <Meals/>
