@@ -4,7 +4,7 @@ import useCartContext from "../../store/cartContext";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
-    const {items, totalAmount, addItem} = useCartContext()
+    const {items, totalAmount, addItem, removeItem} = useCartContext()
     const hasItems = items.length > 0;
 
     function addItemHandler(item) {
@@ -12,7 +12,7 @@ const Cart = (props) => {
     }
 
     function removeItemHandler(id) {
-        console.log(id)
+        removeItem(id)
     }
 
     const cartItems = (
