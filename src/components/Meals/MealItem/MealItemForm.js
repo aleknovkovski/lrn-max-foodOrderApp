@@ -2,8 +2,13 @@ import classes from './MealItemForm.module.css';
 import Input from "../../UI/Input";
 
 function MealItemForm(props) {
+    function submitHandler (event) {
+        event.preventDefault();
+        props.addToCart(4);
+    };
+
     return (
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={submitHandler}>
             <Input
                 label='Amount'
                 input={{
