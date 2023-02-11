@@ -4,11 +4,11 @@ import useCartContext from "../../store/cartContext";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
-    const {items, totalAmount} = useCartContext()
+    const {items, totalAmount, addItem} = useCartContext()
     const hasItems = items.length > 0;
 
     function addItemHandler(item) {
-        console.log(item)
+        addItem(item)
     }
 
     function removeItemHandler(id) {
@@ -20,7 +20,7 @@ const Cart = (props) => {
             {items.map((item) => {
                 return <CartItem {...item} key={item.id}
                  removeItem={() => removeItemHandler(item.id)}
-                 addItem={() => addItemHandler(item)}
+                 addItem={() => addItemHandler({...item, amount:1})}
                 />
             })}
         </ul>
