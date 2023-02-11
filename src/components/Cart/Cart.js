@@ -7,10 +7,21 @@ const Cart = (props) => {
     const {items, totalAmount} = useCartContext()
     const hasItems = items.length > 0;
 
+    function addItemHandler(item) {
+        console.log(item)
+    }
+
+    function removeItemHandler(id) {
+        console.log(id)
+    }
+
     const cartItems = (
         <ul className={classes['cart-items']}>
             {items.map((item) => {
-                return <CartItem {...item} key={item.id}/>
+                return <CartItem {...item} key={item.id}
+                 removeItem={() => removeItemHandler(item.id)}
+                 addItem={() => addItemHandler(item)}
+                />
             })}
         </ul>
     );

@@ -12,6 +12,10 @@ function CartItem (props) {
           <span className={classes.amount}>x {props.amount}</span>
         </div>
       </div>
+      <div className={classes.actions}>
+        <button onClick={props.removeItem}>−</button>
+        <button onClick={props.addItem}>+</button>
+      </div>
     </li>
   );
 };
