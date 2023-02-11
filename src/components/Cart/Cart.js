@@ -1,14 +1,15 @@
 import classes from './Cart.module.css';
 import Modal from "../UI/Modal";
 import useCartContext from "../../store/cartContext";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
     const {items, totalAmount} = useCartContext()
     const cartItems = (
         <ul className={classes['cart-items']}>
-            {items.map((item) => (
-                <li>Item: {item.name}</li>
-            ))}
+            {items.map((item) => {
+                return <CartItem {...item} key={item.id}/>
+            })}
         </ul>
     );
 
