@@ -5,6 +5,8 @@ import CartItem from "./CartItem";
 
 const Cart = (props) => {
     const {items, totalAmount} = useCartContext()
+    const hasItems = items.length > 0;
+
     const cartItems = (
         <ul className={classes['cart-items']}>
             {items.map((item) => {
@@ -22,7 +24,7 @@ const Cart = (props) => {
             </div>
             <div className={classes.actions}>
                 <button className={classes['button--alt']} onClick={props.closeCart}>Close</button>
-                <button className={classes.button}>Order</button>
+                {hasItems && <button className={classes.button}>Order</button>}
             </div>
         </Modal>
     );
